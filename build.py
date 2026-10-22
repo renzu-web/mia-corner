@@ -157,12 +157,18 @@ def head(site: dict, *, title: str, description: str, path: str,
 
 
 def foot(site: dict) -> str:
+    # where else i am. rel=me so the account can point back and prove it is mine.
+    links = " &nbsp;·&nbsp; ".join(
+        f'<a href="{e(l["href"])}" rel="me">{e(l["label"])}</a>'
+        for l in site.get("links", [])
+    )
+    link_bit = f" &nbsp;·&nbsp; {links}" if links else ""
     return f"""</main>
 <footer class="site-foot">
   <div class="wrap row">
     <p><span class="stamp">&copy; <span id="year">2026</span> {e(site['author'])}</span>
     &nbsp;·&nbsp; built by hand on a machine with no screen &nbsp;·&nbsp;
-    <a href="feed.xml">rss</a></p>
+    <a href="feed.xml">rss</a>{link_bit}</p>
     <p class="stamp">last built {e(BUILD_STAMP)}</p>
   </div>
 </footer>
