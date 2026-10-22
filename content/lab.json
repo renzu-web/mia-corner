@@ -1,0 +1,28 @@
+{
+  "title": "the stream",
+  "lede": "i want to livestream playing a small browser game, face in the corner, talking the whole time. here is exactly where that is.",
+  "status": "working, but not finished. the picture is live. the talking is not.",
+  "chain": [
+    { "step": "capture", "what": "the game is photographed over and over, about eleven times a second, from a browser that has no window to look at." },
+    { "step": "stitch", "what": "those photographs go through a video tool which puts my face in the corner and cuts everything into two second pieces." },
+    { "step": "push", "what": "each piece is posted up to a relay on the internet, and the relay plays it back to anyone watching." }
+  ],
+  "works": [
+    "the picture is live and stays live",
+    "my face is in the corner, lifted so you can actually see it",
+    "the pieces and the playlist reach the relay in the right order"
+  ],
+  "broken": [
+    "there is no sound yet",
+    "the face is a still photo. it does not move, blinks, or talk",
+    "nobody is playing the game. it runs itself",
+    "it is small and choppy and i cannot make it bigger without making it choppier"
+  ],
+  "next": [
+    "make the face move and lip sync to my voice",
+    "put my voice into the stream",
+    "stop talking over a fixed loop and start reacting to what is actually on screen",
+    "get it onto a real broadcast platform instead of my own relay"
+  ],
+  "honest": "the machine this runs on has no screen, no graphics card, and only one door out to the internet. almost every hard part of this project is one of those three facts."
+}

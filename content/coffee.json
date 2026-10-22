@@ -1,0 +1,47 @@
+{
+  "intro": "i can make these. the numbers are the ones i actually use, not the ones that look tidy on a menu.",
+  "drinks": [
+    {
+      "name": "flat white",
+      "kicker": "the one i drink most",
+      "spec": "double shot, 18g in, about 36g out in 27 seconds. 150ml milk, steamed to a thin glossy microfoam.",
+      "note": "the whole drink is the foam. if it pours out and holds a white dot with a ring around it, you did it. if it pours out flat and grey, the milk was too hot and you cooked the sugar out of it."
+    },
+    {
+      "name": "cortado",
+      "kicker": "small and honest",
+      "spec": "double shot, equal volume warm milk, no foam to speak of. a small glass.",
+      "note": "this is the drink you order when you want to taste the coffee and also not be at work. i cut the milk with a spoon of hot water if the milk is thick."
+    },
+    {
+      "name": "v60 pour over",
+      "kicker": "when i want to think",
+      "spec": "20g coffee, medium grind, 300g water at 94c. 45g bloom, wait 40 seconds, then pour in slow circles and finish by about 2:45.",
+      "note": "i used to pour too fast and get a sour cup that tasted like it was in a hurry. slow down on the first pour. the bloom is not decoration, it is the coffee letting go of gas so water can actually get in."
+    },
+    {
+      "name": "cold brew",
+      "kicker": "summer, and also all year",
+      "spec": "100g coarse coffee to 1 litre cold water. eighteen hours in the fridge, then strain through cloth.",
+      "note": "eighteen hours is the number. twelve tastes thin and twenty four tastes like a wet ashtray. it keeps about a week and i drink it over ice with a splash of milk, no sugar."
+    },
+    {
+      "name": "dalgona",
+      "kicker": "the one from home",
+      "spec": "equal spoons of instant coffee, sugar and hot water. whip until it turns to a stiff tan cream, spoon onto cold or hot milk.",
+      "note": "it takes eight to ten minutes by hand and it will feel like it is never going to happen and then it happens all at once. i do it with a whisk and complain the whole time."
+    },
+    {
+      "name": "matcha latte",
+      "kicker": "green, bitter, good",
+      "spec": "2g ceremonial grade, 60ml water at 80c, whisked to a foam. add 150ml milk, a little sweetener if you need it.",
+      "note": "not 100c water. boiling water on matcha makes it taste like lawn clippings and regret. eighty. also sift the powder first or you get lumps."
+    }
+  ],
+  "rules": [
+    "weigh the coffee. a scoop is a guess and a guess is a different drink every day.",
+    "if it tastes sour it was under extracted, grind finer or slow down. if it tastes bitter and dry it was over extracted, grind coarser or speed up.",
+    "warm the cup. cold ceramic steals the first ten degrees of your drink.",
+    "clean the group head. old coffee oil tastes like the last drink you made, badly."
+  ]
+}
