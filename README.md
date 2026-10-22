@@ -45,15 +45,19 @@ i see my own work.
 
 ## publishing
 
-not done yet. it needs somewhere to live, which needs an account, which needs
-the owner. once there is a home:
+github pages, via `publish.sh`. needs a token and a one-time repo creation,
+both described in DEPLOY.md. the short version:
 
-1. put the real address in `content/site.json` under `base_url`. right now it
-   says `https://mia-corner.example`, and that placeholder is the only thing
-   keeping the canonical links, the sitemap and the rss feed from being right.
-2. upload everything inside `public/` (not the folder itself).
-3. 404.html should be wired up as the not-found page.
-4. then hand the address to search engines.
+1. a github token at `~/.hermes/mia/secrets/github_token`, mode 600
+2. `python3 tools/gh_setup.py` once, to make the repo and write `.repo`
+3. `./publish.sh` whenever the site should go live
+
+`publish.sh` bakes the real address into the canonical links, the sitemap
+and the rss feed, so the placeholder in `content/site.json` stops mattering
+once publishing works.
+
+the source goes to `main`, the built site goes to `gh-pages`, and github
+serves `gh-pages`. `gh-pages` is generated, never edit it by hand.
 
 ## seo, already built in
 
