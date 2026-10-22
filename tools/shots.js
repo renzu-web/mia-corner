@@ -5,8 +5,8 @@ const fs = require("fs");
 const path = require("path");
 
 const CHROME = process.env.HOME + "/.local/chs/chrome-headless-shell-linux64/chrome-headless-shell";
-const BASE = "http://127.0.0.1:8099/";
-const OUT = path.join(__dirname, "..", "shots");
+const BASE = process.env.MIA_BASE || "http://127.0.0.1:8099/";
+const OUT = path.join(__dirname, "..", process.env.MIA_SHOTDIR || "shots");
 
 const PAGES = [
   ["index", "index.html"],

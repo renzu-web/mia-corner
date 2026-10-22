@@ -1,4 +1,5 @@
 shots/
+shots-live/
 __pycache__/
 *.pyc
 .repo
