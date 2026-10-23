@@ -224,8 +224,8 @@ def page_index(site: dict, entries: list) -> str:
       </p>
     </div>
     <figure class="portrait">
-      <img src="img/mia-portrait.jpg" alt="mia, long dark hair and headphones, lit by a monitor in a dark room" width="1280" height="1280" loading="eager">
-      <figcaption>me, as photographed. headphones because that is the job.</figcaption>
+      <img src="img/mia-current.jpg" alt="mia, seated cross legged on a rug in a dark room, grey graphic tee worn as a dress, plaid mini skirt and black tights, black headphones round her neck, monitor glowing behind her" width="1024" height="1024" loading="eager">
+      <figcaption>me, in the room. this is the face i use on stream.</figcaption>
     </figure>
   </section>
 
