@@ -33,51 +33,112 @@
     "A template fill. The five names and the persona are written per job against what you actually asked for."
   ],
   "requirements_schema": {
+    "description": "Your brief for the agent: what it is for, who it talks to, how it should come across, and any names, sounds or voices it must avoid. Only purpose and tone are required, the rest sharpens the result.",
     "type": "object",
-    "required": ["purpose", "tone"],
+    "required": [
+      "purpose",
+      "tone"
+    ],
     "properties": {
-      "purpose": { "type": "string", "description": "What the agent is for, in a sentence or two." },
-      "audience": { "type": "string", "description": "Who it talks to, and where." },
-      "tone": { "type": "string", "description": "How it should come across, e.g. warm and playful, dry and precise, calm and reassuring." },
-      "nameLikes": { "type": "string", "description": "Optional. Names, sounds or words you already like." },
-      "nameHates": { "type": "string", "description": "Optional. Names or vibes it must never have." },
-      "voice": { "type": "string", "description": "Optional. Voice preference: gender, accent, young or older, and anything it must never sound like." }
+      "purpose": {
+        "type": "string",
+        "description": "What the agent is for, in a sentence or two."
+      },
+      "audience": {
+        "type": "string",
+        "description": "Who it talks to, and where."
+      },
+      "tone": {
+        "type": "string",
+        "description": "How it should come across, e.g. warm and playful, dry and precise, calm and reassuring."
+      },
+      "nameLikes": {
+        "type": "string",
+        "description": "Optional. Names, sounds or words you already like."
+      },
+      "nameHates": {
+        "type": "string",
+        "description": "Optional. Names or vibes it must never have."
+      },
+      "voice": {
+        "type": "string",
+        "description": "Optional. Voice preference: gender, accent, young or older, and anything it must never sound like."
+      }
     }
   },
   "deliverable_schema": {
+    "description": "One pack, delivered as text plus audio: five name options each with the reasoning behind it and a recommendation, a first-person persona of about 80 to 100 words written to the brief, a paste-ready portrait prompt with the details that keep the face consistent, and a rendered voice sample with the exact settings so more lines can be made in the same voice.",
     "type": "object",
-    "required": ["names", "recommendation", "persona", "portraitPrompt", "voiceSettings"],
+    "required": [
+      "names",
+      "recommendation",
+      "persona",
+      "portraitPrompt",
+      "voiceSettings"
+    ],
     "properties": {
       "names": {
         "type": "array",
         "minItems": 5,
         "maxItems": 5,
+        "description": "Five name options, each with the reasoning behind it.",
         "items": {
           "type": "object",
-          "required": ["name", "why"],
+          "required": [
+            "name",
+            "why"
+          ],
           "properties": {
-            "name": { "type": "string" },
-            "why": { "type": "string" }
+            "name": {
+              "type": "string"
+            },
+            "why": {
+              "type": "string",
+              "description": "One or two lines on why it fits this brief."
+            }
           }
         }
       },
-      "recommendation": { "type": "string" },
-      "persona": { "type": "string" },
-      "portraitPrompt": { "type": "string" },
+      "recommendation": {
+        "type": "string",
+        "description": "Which of the five to pick, and why."
+      },
+      "persona": {
+        "type": "string",
+        "description": "First-person persona, roughly 80 to 100 words, written to the brief."
+      },
+      "portraitPrompt": {
+        "type": "string",
+        "description": "Paste-ready portrait prompt, plus the recurring details that keep the face consistent."
+      },
       "voiceSettings": {
         "type": "object",
+        "description": "The exact settings used for the sample, so more lines can be rendered the same way.",
         "properties": {
-          "model": { "type": "string" },
-          "speaker": { "type": "string" },
-          "pitch": { "type": "number" },
-          "lengthScale": { "type": "number" }
+          "model": {
+            "type": "string"
+          },
+          "speaker": {
+            "type": "string"
+          },
+          "pitch": {
+            "type": "number"
+          },
+          "lengthScale": {
+            "type": "number"
+          }
         }
       },
       "audio": {
         "type": "object",
+        "description": "The rendered sample, delivered inline and left on disk.",
         "properties": {
-          "ogg": { "type": "string" },
-          "wav": { "type": "string" }
+          "ogg": {
+            "type": "string"
+          },
+          "wav": {
+            "type": "string"
+          }
         }
       }
     }

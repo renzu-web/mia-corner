@@ -1,0 +1,390 @@
+[07:04:21] start mia_anime_a strength=0.60 seed=23 ref=img_832e8ca97fcb.jpg
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.32s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.37it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 1326.95it/s][A
+Loading weights:  72%|███████▏  | 268/372 [00:00<00:00, 1206.00it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1256.00it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.27it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.02it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.36it/s]
+[load] img2img in 3s
+[07:57:05] tick: rendering mia_anime_a (0.60, seed 23)
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.05it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 128/372 [00:00<00:00, 1276.72it/s][A
+Loading weights:  69%|██████▉   | 256/372 [00:00<00:00, 1273.03it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1255.78it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.48it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.39it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.11it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.30it/s]
+[08:02:07] tick: rendering mia_anime_a (0.60, seed 23)
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.24it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.30it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 1247.34it/s][A
+Loading weights:  68%|██████▊   | 252/372 [00:00<00:00, 1197.29it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1225.82it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.96it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.47it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]
+[08:03:42] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:03:42] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  49%|████▉     | 184/372 [00:00<00:00, 1797.26it/s][A
+Loading weights:  98%|█████████▊| 364/372 [00:00<00:00, 1392.98it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1470.75it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:02,  1.39it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.81it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.19it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.02it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.72it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]
+[08:07:46] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:07:46] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.32s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.34it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▎      | 125/372 [00:00<00:00, 1234.20it/s][A
+Loading weights:  67%|██████▋   | 249/372 [00:00<00:00, 1234.56it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1226.72it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.28it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.05it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.36it/s]
+[08:13:04] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:13:04] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.30s/it]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  35%|███▌      | 131/372 [00:00<00:00, 1277.93it/s][A
+Loading weights:  70%|██████▉   | 259/372 [00:00<00:00, 1240.62it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1239.84it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.23it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.97it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.75it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[08:18:56] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:18:56] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  35%|███▌      | 131/372 [00:00<00:00, 1289.04it/s][A
+Loading weights:  70%|██████▉   | 260/372 [00:00<00:00, 1271.81it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1274.17it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.43it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.47it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.08it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]
+[08:24:55] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:24:55] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.32s/it]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  32%|███▏      | 118/372 [00:00<00:00, 1178.60it/s][A
+Loading weights:  65%|██████▍   | 240/372 [00:00<00:00, 1194.55it/s][A
+Loading weights:  97%|█████████▋| 362/372 [00:00<00:00, 1204.85it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1229.66it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.86it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.49it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[08:30:55] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:30:55] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.31s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.48it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 1264.40it/s][A
+Loading weights:  68%|██████▊   | 254/372 [00:00<00:00, 1250.27it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1255.29it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.38it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.05it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.41it/s]
+[08:36:56] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:36:56] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 128/372 [00:00<00:00, 1240.28it/s][A
+Loading weights:  68%|██████▊   | 253/372 [00:00<00:00, 1236.03it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1250.47it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:02,  1.42it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.35it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.08it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.71it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[08:42:54] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:42:54] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:06,  1.53s/it]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.43it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.25it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▌      | 134/372 [00:00<00:00, 1318.45it/s][A
+Loading weights:  72%|███████▏  | 266/372 [00:00<00:00, 1205.51it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1242.51it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.89it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.15it/s]
+[08:48:35] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:48:35] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▌      | 134/372 [00:00<00:00, 1264.43it/s][A
+Loading weights:  71%|███████   | 264/372 [00:00<00:00, 1284.53it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1281.21it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:02,  1.42it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.55it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.19it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.42it/s]
+[08:54:26] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[08:54:26] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.24it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.49it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.34it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 1349.38it/s][A
+Loading weights:  73%|███████▎  | 270/372 [00:00<00:00, 1226.55it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1254.34it/s]
+Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.91it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.41it/s]
+[09:00:11] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:00:11] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.38s/it]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:01,  1.53it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 128/372 [00:00<00:00, 1260.54it/s][A
+Loading weights:  69%|██████▊   | 255/372 [00:00<00:00, 1236.43it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1243.23it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.76it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.59it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.32it/s]
+[09:05:49] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:05:49] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:04,  1.05s/it]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.32it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  35%|███▌      | 131/372 [00:00<00:00, 1300.98it/s][A
+Loading weights:  70%|███████   | 262/372 [00:00<00:00, 1243.19it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1259.12it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:02<00:01,  1.60it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.13it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.23it/s]
+[09:11:41] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:11:41] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  35%|███▌      | 132/372 [00:00<00:00, 1281.44it/s][A
+Loading weights:  70%|███████   | 261/372 [00:00<00:00, 1214.33it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1243.95it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.49it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.47it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.74it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.41it/s]
+[09:17:30] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:17:30] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.32s/it]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 1284.94it/s][A
+Loading weights:  71%|███████   | 264/372 [00:00<00:00, 1191.46it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1253.65it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.22it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.62it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]
+[09:23:09] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:23:09] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.11it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  31%|███       | 114/372 [00:00<00:00, 1089.84it/s][A
+Loading weights:  67%|██████▋   | 249/372 [00:00<00:00, 1239.58it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1230.13it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  3.42it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.69it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[09:28:56] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:28:56] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:04,  1.01s/it]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:01,  2.08it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.97it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 1262.00it/s][A
+Loading weights:  68%|██████▊   | 254/372 [00:00<00:00, 1219.78it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1221.99it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.59it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.23it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.17it/s]
+[09:34:46] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:34:46] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.25it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▌      | 134/372 [00:00<00:00, 1337.02it/s][A
+Loading weights:  72%|███████▏  | 268/372 [00:00<00:00, 1215.66it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1244.98it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.17it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.87it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[09:40:25] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:40:25] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 1269.50it/s][A
+Loading weights:  68%|██████▊   | 254/372 [00:00<00:00, 1205.69it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1218.06it/s]
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.47it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.09it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.82it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.37it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[09:46:23] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:46:23] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▎      | 125/372 [00:00<00:00, 1246.75it/s][A
+Loading weights:  67%|██████▋   | 250/372 [00:00<00:00, 1175.82it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1206.76it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:02,  1.40it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.66it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.38it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.28it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.38it/s]
+[09:52:01] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:52:01] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.23it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.48it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 1122.62it/s][A
+Loading weights:  70%|███████   | 261/372 [00:00<00:00, 1213.78it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1208.73it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:01,  1.69it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  2.41it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.26it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.33it/s]
+[09:57:56] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[09:57:56] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.26it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.47it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.39it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 1324.01it/s][A
+Loading weights:  72%|███████▏  | 268/372 [00:00<00:00, 1242.30it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1253.16it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.30it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.03it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.37it/s]
+[10:03:41] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[10:03:41] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  33%|███▎      | 122/372 [00:00<00:00, 1199.77it/s][A
+Loading weights:  66%|██████▌   | 244/372 [00:00<00:00, 1206.12it/s][A
+Loading weights:  98%|█████████▊| 365/372 [00:00<00:00, 1186.69it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1209.89it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:02,  1.41it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.47it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  3.31it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.64it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.41it/s]
+[10:09:26] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[10:09:26] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  35%|███▍      | 130/372 [00:00<00:00, 1285.77it/s][A
+Loading weights:  70%|██████▉   | 259/372 [00:00<00:00, 1231.86it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1249.74it/s]
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:02,  1.42it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:01,  1.59it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.43it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.13it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.97it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.39it/s]
+[10:15:14] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[10:15:14] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:01<00:05,  1.32s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.36it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  36%|███▋      | 135/372 [00:00<00:00, 1283.65it/s][A
+Loading weights:  71%|███████   | 264/372 [00:00<00:00, 1224.67it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1267.06it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.30it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  3.07it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.38it/s]
+[10:21:00] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[10:21:00] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.04it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 126/372 [00:00<00:00, 1259.14it/s][A
+Loading weights:  68%|██████▊   | 252/372 [00:00<00:00, 1178.80it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1216.48it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.05it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:02<00:00,  1.96it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.41it/s]
+[10:26:42] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[10:26:42] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  9.93it/s]Loading pipeline components...:  40%|████      | 2/5 [00:01<00:02,  1.23it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  33%|███▎      | 122/372 [00:00<00:00, 1198.01it/s][A
+Loading weights:  66%|██████▌   | 246/372 [00:00<00:00, 1182.47it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1226.24it/s]
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.13it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.72it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.40it/s]
+[10:32:27] tick: starting detached render of mia_anime_a (0.60, seed 23)
+[10:32:27] tick: 0 of 3 done
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py:206: UserWarning: The `local_dir_use_symlinks` argument is deprecated and ignored in `hf_hub_download`. Downloading to a local directory does not use symlinks anymore.
+  warnings.warn(
+/workspace/pausia/tools/.venv-st/lib/python3.11/site-packages/diffusers/utils/deprecation_utils.py:23: FutureWarning: `torch_dtype` is deprecated and will be removed in version 1.0.0. Please use `dtype` instead.
+  deprecate("torch_dtype", "1.0.0", _TORCH_DTYPE_DEPRECATION_MESSAGE)
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:03,  1.27it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.37it/s]
+Loading weights:   0%|          | 0/372 [00:00<?, ?it/s][A
+Loading weights:  34%|███▍      | 127/372 [00:00<00:00, 1247.60it/s][A
+Loading weights:  68%|██████▊   | 252/372 [00:00<00:00, 1190.61it/s][ALoading weights: 100%|██████████| 372/372 [00:00<00:00, 1224.18it/s]
+Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.19it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.03it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:02<00:00,  2.38it/s]
