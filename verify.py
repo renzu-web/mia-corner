@@ -77,10 +77,16 @@ def check() -> None:
         if found == 0:
             problems.append(f"{name}: no {kind}s")
 
-    # feed should carry every entry
+    # feed should carry every entry. compare against the *unescaped* item titles,
+    # not the raw xml text, or any title with an apostrophe or ampersand reads as
+    # missing even though the feed is correct.
     entries = json.loads((ROOT / "content" / "entries.json").read_text(encoding="utf-8"))["entries"]
     feed = (PUBLIC / "feed.xml").read_text(encoding="utf-8")
-    missing = [e["title"] for e in entries if e["title"] not in feed]
+    try:
+        feed_titles = {el.text or "" for el in ET.fromstring(feed).iter() if el.tag.endswith("title")}
+    except ET.ParseError:
+        feed_titles = set()  # the parse failure is already reported above
+    missing = [e["title"] for e in entries if e["title"] not in feed_titles]
     if missing:
         problems.append(f"feed.xml missing entries: {missing}")
     else:
