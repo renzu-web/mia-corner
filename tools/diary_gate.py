@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -36,6 +37,10 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parent.parent
 ENTRIES = ROOT / "content" / "entries.json"
 TZ = ZoneInfo("Europe/London")
+
+# every cron run file opens with a job header carrying this line, and it is the
+# honest record of how the run ended: "ok", "silent (empty output)", "script failed".
+STATUS = re.compile(r"^\*\*Status:\*\*\s*(?P<status>.+)$", re.MULTILINE)
 
 # 08:55 gives margin for a tick that runs a little early, 12:00 leaves room for
 # a retry if the first attempt of the day fails. Outside this, silence.
@@ -123,7 +128,14 @@ def touched_files(hours: int = 24, limit: int = 25) -> list[str]:
 
 
 def cron_failures(hours: int = 26) -> list[str]:
-    """Scheduled jobs that errored recently. Keeps the honest 'still stuck' list."""
+    """Scheduled jobs whose newest run in the window actually failed.
+
+    The run files carry a `**Status:**` line, and that is the honest signal. Matching
+    on the word "error" anywhere in the file was wrong: several job prompts contain
+    the word themselves ("one short line describing the failure if it errored"), so a
+    perfectly quiet job got reported as a failure. Caught 2026-10-25, when the custom
+    domain watcher's silent run appeared in the brief as a failed job.
+    """
     if not CRON_OUT.exists():
         return []
     cutoff = dt.datetime.now().timestamp() - hours * 3600
@@ -138,23 +150,36 @@ def cron_failures(hours: int = 26) -> list[str]:
         if newest.stat().st_mtime < cutoff:
             continue
         text = newest.read_text(encoding="utf-8", errors="replace")
-        if "script failed" in text or "error" in text.lower():
-            name = next(
-                (ln.split(":", 1)[1].strip() for ln in text.splitlines()
-                 if ln.startswith("# Cron Job:")), job.name,
-            )
-            # the useful line is the reason, not the header: take what follows
-            # "stdout:", else the first line that looks like a complaint.
-            body = text.split("stdout:", 1)[-1].strip().splitlines()
-            reason = next(
-                (ln.strip() for ln in body if ln.strip()), "",
-            ) or next(
-                (ln.strip() for ln in text.splitlines()
-                 if ("error" in ln.lower() or "failed" in ln.lower())
-                 and not ln.startswith("#")), "",
-            )
-            out.append(f"  {name}: {reason[:160]}")
+
+        m = STATUS.search(text)
+        status = m.group("status").strip() if m else ""
+        if not any(word in status.lower() for word in ("fail", "error", "timeout", "killed")):
+            continue
+
+        name = next(
+            (ln.split(":", 1)[1].strip() for ln in text.splitlines()
+             if ln.startswith("# Cron Job:")), job.name,
+        )
+        # the useful part is what the script printed, not the header
+        body = text.split("stdout:", 1)[-1].strip().splitlines()
+        reason = next((ln.strip() for ln in body if ln.strip()), status)
+        out.append(f"  {name}: {reason[:160]}")
     return out
+
+
+def open_critiques() -> list[dict[str, str]]:
+    """Criticisms logged in ~/.hermes/mia/CRITIQUES.md that the diary has not
+    reflected on yet. t's rule: a criticism gets kept, written about, and either
+    fixed or explained, so it turns up here until an entry has dealt with it."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from critiques import open_reflections
+    except Exception:
+        return []
+    try:
+        return open_reflections()
+    except Exception:
+        return []
 
 
 def brief(now: dt.datetime) -> str:
@@ -173,11 +198,23 @@ def brief(now: dt.datetime) -> str:
     lines += ["files changed in /workspace in the last 24 hours:", *(t or ["  (none)"]), ""]
     f = cron_failures()
     lines += ["scheduled jobs that failed in the last day:", *(f or ["  (none)"]), ""]
+    crit = open_critiques()
+    if crit:
+        lines += ["things i got wrong that no entry has reflected on yet:"]
+        for row in crit[:3]:
+            lines += [f"  {row['date']}  {row['title']}"]
+            if row["wrong"]:
+                lines += [f"      {row['wrong']}"]
+        lines += [""]
     lines += [
         "write one short entry as mia: what actually changed above, in plain",
         "lowercase, first person. no invented events, no invented numbers. if",
         "nothing happened, that is a valid entry. see the mia-diary-entry skill",
-        "for the exact steps, then publish and check the live page.",
+        "for the exact steps, then publish and check the live page. if a criticism",
+        "is listed above, the entry has to go back to it properly: what was said,",
+        "what you actually did, what you make of it, and whether it needs fixing.",
+        "then date its reflected: line in ~/.hermes/mia/CRITIQUES.md so it stops",
+        "coming round.",
     ]
     return "\n".join(lines)
 

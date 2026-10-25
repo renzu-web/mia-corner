@@ -30,6 +30,7 @@ import argparse
 import datetime as dt
 import json
 import re
+import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -104,6 +105,40 @@ def site_note(day: dt.date) -> str:
                 "old. refreshing it honestly counts as part of today, and it gets published "
                 "like everything else.")
     return ""
+
+
+def critique_lines() -> list[str]:
+    """Criticisms from ~/.hermes/mia/CRITIQUES.md that no diary entry has dealt with
+    yet. They belong on the list, because 'work out if it needs fixing' is work like
+    any other."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from critiques import open_reflections
+    except Exception:
+        return []
+    try:
+        rows = open_reflections()
+    except Exception:
+        return []
+    return [
+        f"  {r['date']}  {r['title']}" + (f" — {r['wrong']}" if r["wrong"] else "")
+        for r in rows[:3]
+    ]
+
+
+def night_note(day: dt.date) -> str:
+    """Did last night actually happen? A silent job that never fires looks exactly
+    like a quiet night, so the morning brief carries the evidence."""
+    dreams = Path("/home/hermes/.hermes/mia/DREAMS.md")
+    if not dreams.exists():
+        return ""
+    text = dreams.read_text(encoding="utf-8")
+    night = day - dt.timedelta(days=1)
+    if re.search(rf"^##\s+{night.isoformat()}\b", text, re.MULTILINE):
+        return ""
+    return (f"NIGHT NOTE: the night of {night.isoformat()} has no entry in "
+            "~/.hermes/mia/DREAMS.md. last night's reflection is due: write it first, in "
+            "the shape that file describes, before the day's list.")
 
 
 # ---------------------------------------------------------------- writing
@@ -188,6 +223,17 @@ def brief(day: dt.date) -> str:
     note = site_note(day)
     if note:
         lines += ["--- site note ---", note, ""]
+
+    night = night_note(day)
+    if night:
+        lines += ["--- night note ---", night, ""]
+
+    crit = critique_lines()
+    if crit:
+        lines += ["--- things i got wrong, not reflected on yet ---",
+                  *crit,
+                  "(a diary entry has to go back to one of these, or it becomes an item)",
+                  ""]
 
     lines += ["--- the shape today's file should take ---",
               TEMPLATE.format(day=day.isoformat()), ""]
