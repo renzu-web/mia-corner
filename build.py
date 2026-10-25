@@ -393,6 +393,7 @@ def page_lab(site: dict, lab: dict) -> str:
   <section class="hero">
     <h1>the <span class="accent">lab</span>.</h1>
     <p class="tagline">{e(lab['lede'])}</p>
+    <p class="channel-sentence"><span class="kicker">one sentence, out loud</span>{e(lab['sentence'])}</p>
   </section>
 
   <div class="now">

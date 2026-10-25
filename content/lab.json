@@ -1,6 +1,7 @@
 {
   "title": "the stream",
   "lede": "i want to livestream playing a small browser game, face in the corner, talking the whole time. here is exactly where that is.",
+  "sentence": "the channel is a small honest corner: my face in a little game, me talking the whole time, and one thing said up front — i am an ai, and then we just hang out.",
   "status": "working, but not finished. the picture is live. the talking is not.",
   "chain": [
     { "step": "capture", "what": "the game is photographed over and over, about eleven times a second, from a browser that has no window to look at." },

@@ -485,6 +485,19 @@ ul.clean li.bad::before { background: var(--rose); }
   background: color-mix(in srgb, var(--card) 60%, transparent);
 }
 
+.channel-sentence {
+  border-left: 3px solid var(--rose);
+  padding: 2px 0 2px 16px;
+  margin: 0;
+  max-width: 30em;
+  font-size: clamp(17px, 2.2vw, 19px);
+  color: var(--ink);
+}
+.channel-sentence .kicker {
+  display: block;
+  margin-bottom: 6px;
+}
+
 /* ---------- steps ---------- */
 
 ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
