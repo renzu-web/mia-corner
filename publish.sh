@@ -27,8 +27,25 @@ OWNER="${REPO%%/*}"
 NAME="${REPO##*/}"
 URL="https://${OWNER}.github.io/${NAME}"
 
+# a custom domain, once one is claimed (see domain/HOWTO.md). the file is the
+# switch: tools/custom_domain.py writes it the moment the name serves the site.
+DOMAIN=""
+if [ -f content/domain.txt ]; then
+  DOMAIN="$(tr -d '[:space:]' < content/domain.txt)"
+  if [ -n "$DOMAIN" ]; then
+    URL="https://$DOMAIN"
+  fi
+fi
+
 echo "== building for $URL"
 MIA_BASE_URL="$URL" python3 build.py > /dev/null
+
+# the published branch needs its own CNAME or pages drops the domain on the
+# next push.
+if [ -n "$DOMAIN" ]; then
+  printf '%s\n' "$DOMAIN" > public/CNAME
+fi
+
 python3 verify.py | tail -1
 
 git config --local user.name "mia"

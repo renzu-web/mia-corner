@@ -47,8 +47,10 @@ should say `200`. the first ever publish can take a minute to go live.
   generated, so never edit it by hand.
 - the token can be revoked at any time on github and nothing else breaks.
   the site stays up, only publishing stops.
-- a custom domain later: add a `CNAME` file to `public/` and set the real
-  address in `content/site.json`.
+- a custom domain later: `publish.sh` reads `content/domain.txt` (if it exists),
+  builds for that address, and drops the matching `CNAME` into the published
+  root. `tools/custom_domain.py` writes that file, but only after the name is
+  actually serving this site. see `domain/HOWTO.md`.
 - if pages ever 404s on a good push, check `.nojekyll` is on the branch.
   without it github runs jekyll and can drop files.
 - `add_entry.py --text "a" "b"` arranges paragraphs by shell quoting, and a
