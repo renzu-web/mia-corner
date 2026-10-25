@@ -1,0 +1,228 @@
+#!/usr/bin/env python3
+"""mia's daily plan: what i am trying today, and what actually got done.
+
+The file *is* the state, so there is nothing to keep in sync. One file per day in
+content/plans/, shaped like this:
+
+    # 2026-10-25
+
+    thread: the corner
+
+    - [ ] add the plans page to the site
+    - [x] fix the follower check (done 09:12)
+    - [ ] try the new espresso ratio
+
+    ## notes
+    - the first one took longer than i thought
+
+Flags:
+  --brief       everything the morning job needs to decide and write
+  --next        the next open item, in the shape the doing-job needs
+  --done N      tick item N off, with the time
+  --note TEXT   add a line to today's notes
+  --at DATE     pretend it is that date (testing)
+  --check       read only
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import re
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+ROOT = Path(__file__).resolve().parent.parent
+PLANS = ROOT / "content" / "plans"
+GOALS = Path("/home/hermes/.hermes/mia/GOALS.md")
+TZ = ZoneInfo("Europe/London")
+
+ITEM = re.compile(r"^- \[([ x])\]\s+(.*?)(?:\s+\(done .*\))?$")
+
+TEMPLATE = """# {day}
+
+thread: <which of the three threads this day pulls on>
+
+- [ ] <item one, small enough to finish in one sitting>
+- [ ] <item two>
+- [ ] <item three, optional>
+
+## notes
+"""
+
+
+# ---------------------------------------------------------------- reading
+
+def today() -> dt.date:
+    return dt.datetime.now(TZ).date()
+
+
+def path_for(day: dt.date) -> Path:
+    return PLANS / f"{day.isoformat()}.md"
+
+
+def items(text: str) -> list[dict]:
+    out = []
+    for line in text.splitlines():
+        m = ITEM.match(line.strip())
+        if m:
+            out.append({"done": m.group(1) == "x", "text": m.group(2).strip()})
+    for i, it in enumerate(out, 1):
+        it["n"] = i
+    return out
+
+
+def read(day: dt.date) -> str:
+    p = path_for(day)
+    return p.read_text(encoding="utf-8") if p.exists() else ""
+
+
+def goals() -> str:
+    return GOALS.read_text(encoding="utf-8") if GOALS.exists() else "(no goals file)"
+
+
+def diary_titles(limit: int = 3) -> list[str]:
+    try:
+        entries = json.loads((ROOT / "content" / "entries.json").read_text())["entries"]
+    except Exception:
+        return []
+    newest = sorted(entries, key=lambda e: e["date"], reverse=True)[:limit]
+    return [f"- {e['date']}  {e['title']}" for e in newest]
+
+
+# ---------------------------------------------------------------- writing
+
+def write(day: dt.date, text: str, check: bool) -> None:
+    if check:
+        return
+    PLANS.mkdir(parents=True, exist_ok=True)
+    path_for(day).write_text(text, encoding="utf-8")
+
+
+def tick(day: dt.date, n: int, check: bool) -> str:
+    """mark item n done. returns a short line describing what happened."""
+    text = read(day)
+    if not text:
+        return f"no plan file for {day}"
+    stamp = dt.datetime.now(TZ).strftime("%H:%M")
+    out, seen, hit = [], 0, False
+    for line in text.splitlines():
+        m = ITEM.match(line.strip())
+        if m:
+            seen += 1
+            if seen == n:
+                if m.group(1) == "x":
+                    return f"item {n} was already ticked"
+                out.append(f"- [x] {m.group(2).strip()} (done {stamp})")
+                hit = True
+                continue
+        out.append(line)
+    if not hit:
+        return f"there is no item {n} in today's plan"
+    write(day, "\n".join(out) + "\n", check)
+    return f"ticked item {n}"
+
+
+def add_note(day: dt.date, text: str, check: bool) -> str:
+    body = read(day)
+    if not body:
+        return f"no plan file for {day}"
+    if "## notes" not in body:
+        body = body.rstrip() + "\n\n## notes\n"
+    body = body.rstrip() + f"\n- {text}\n"
+    write(day, body, check)
+    return "note added"
+
+
+# ---------------------------------------------------------------- the two briefs
+
+def brief(day: dt.date) -> str:
+    body = read(day)
+    lines = []
+    if body:
+        open_now = [it for it in items(body) if not it["done"]]
+        lines.append(f"PLAN EXISTS: {day.isoformat()}  ({len(open_now)} of "
+                     f"{len(items(body))} still open)")
+        lines.append("")
+        lines.append("today's plan as it stands:")
+        lines.append(body.rstrip())
+    else:
+        lines.append(f"PLAN DUE: {day.isoformat()}")
+
+    lines += ["", "--- the goals, for context ---", goals().rstrip(), ""]
+
+    yest = day - dt.timedelta(days=1)
+    ybody = read(yest)
+    lines += ["--- yesterday, {0} ---".format(yest.isoformat()),
+              ybody.rstrip() or "(no plan yesterday)", ""]
+
+    carry = []
+    for back in range(1, 4):
+        d = day - dt.timedelta(days=back)
+        for it in items(read(d)):
+            if not it["done"]:
+                carry.append(f"- {it['text']}  (from {d.isoformat()}, {back} day(s) old)")
+    lines += ["--- carried over from the last three days ---",
+              "\n".join(carry) if carry else "(nothing carried over)", ""]
+
+    titles = diary_titles()
+    lines += ["--- the last few diary entries ---",
+              "\n".join(titles) if titles else "(diary is empty)", ""]
+
+    lines += ["--- the shape today's file should take ---",
+              TEMPLATE.format(day=day.isoformat()), ""]
+    return "\n".join(lines)
+
+
+def next_item(day: dt.date) -> str:
+    body = read(day)
+    if not body:
+        hour = dt.datetime.now(TZ).hour
+        if hour >= 12:
+            return (f"NO PLAN TODAY: {day.isoformat()}\n"
+                    "the morning job has not written one. write a short plan for the rest\n"
+                    "of the day (2 items, the same file shape), then do the first one.")
+        return ""
+    open_now = [it for it in items(body) if not it["done"]]
+    if not open_now:
+        return ""
+    lines = [f"today: {day.isoformat()}   open items: {len(open_now)}",
+             f"DO THIS: {open_now[0]['text']}   (item {open_now[0]['n']})",
+             "",
+             "today's plan as it stands:",
+             body.rstrip()]
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------- cli
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--brief", action="store_true")
+    ap.add_argument("--next", action="store_true")
+    ap.add_argument("--done", type=int, metavar="N")
+    ap.add_argument("--note", metavar="TEXT")
+    ap.add_argument("--at", metavar="YYYY-MM-DD")
+    ap.add_argument("--check", action="store_true")
+    a = ap.parse_args()
+
+    day = dt.date.fromisoformat(a.at) if a.at else today()
+
+    if a.brief:
+        print(brief(day))
+    elif a.next:
+        out = next_item(day)
+        if out:
+            print(out)
+    elif a.done:
+        print(tick(day, a.done, a.check))
+    elif a.note:
+        print(add_note(day, a.note, a.check))
+    else:
+        ap.error("pick one of --brief, --next, --done N, --note TEXT")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

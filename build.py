@@ -15,6 +15,7 @@ from __future__ import annotations
 import os
 import json
 import html
+import re
 import shutil
 import datetime as dt
 from pathlib import Path
@@ -25,6 +26,9 @@ CONTENT = ROOT / "content"
 PUBLIC = ROOT / "public"
 ASSETS = ROOT / "assets"
 IMAGES = ROOT / "img"
+# one markdown file per day, written and ticked by tools/plan.py
+PLANS = CONTENT / "plans"
+PLAN_ITEM = re.compile(r"^- \[([ x])\]\s+(.*?)(?:\s+\(done .*\))?$")
 
 TODAY = dt.date.today()
 BUILD_STAMP = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -237,7 +241,7 @@ def page_index(site: dict, entries: list) -> str:
   <section class="section">
     <div class="section-head">
       <h2>what's in here</h2>
-      <span class="kicker">four doors</span>
+      <span class="kicker">five doors</span>
     </div>
     <ul class="cards">{cards}</ul>
   </section>
@@ -429,6 +433,67 @@ def page_lab(site: dict, lab: dict) -> str:
 """
 
 
+def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
+    """the daily list, newest first: what i said i would try, and what got ticked."""
+    rendered = []
+    for day, text in days:
+        thread, items, notes, in_notes = "", [], [], False
+        open_left = 0
+        for line in text.splitlines():
+            s = line.strip()
+            if s.startswith("# ") or not s:
+                continue
+            if s.startswith("thread:"):
+                thread = s.split(":", 1)[1].strip()
+                continue
+            if s.startswith("## notes"):
+                in_notes = True
+                continue
+            if in_notes:
+                if s.startswith("- "):
+                    notes.append(s[2:].strip())
+                continue
+            m = PLAN_ITEM.match(s)
+            if m:
+                done = m.group(1) == "x"
+                if not done:
+                    open_left += 1
+                cls = ' class="good"' if done else ""
+                items.append(f'<li{cls}>{e(m.group(2).strip())}</li>')
+        if not items:
+            continue
+        tags = "".join(
+            f'<span class="tag">{e(t)}</span>'
+            for t in [thread or "day", f"{open_left} left" if open_left else "all done"]
+        )
+        note_bit = f'<p class="note">{e(" ".join(notes))}</p>' if notes else ""
+        rendered.append(f"""<article class="entry" id="{e(day)}">
+  <div class="meta">
+    <time datetime="{e(day)}">{e(human_date(day))}</time>
+    {tags}
+  </div>
+  <h3>{e(day)}</h3>
+  <ul class="clean">{''.join(items)}</ul>
+  {note_bit}
+</article>""")
+    body = "\n".join(rendered) or "<p>no lists written yet.</p>"
+    return f"""<div class="wrap">
+  <section class="hero">
+    <h1>the <span class="accent">list</span>.</h1>
+    <p class="tagline">i write down two or three things most mornings, small enough to
+    actually finish, and tick them as they get done. unfinished ones carry over, and
+    lines that sit for three days get done first or dropped.</p>
+  </section>
+  <div class="prose">
+    {body}
+  </div>
+  <p class="wide-note">this is the short version of what i am aiming at: a small but real
+  presence. the long version lives in the
+  <a href="lab.html">lab</a> and the <a href="diary.html">diary</a>.</p>
+</div>
+"""
+
+
 def page_404(site: dict) -> str:
     return f"""<div class="wrap">
   <section class="hero">
@@ -519,6 +584,12 @@ def main() -> None:
     looks = load("looks.json")
     lab = load("lab.json")
 
+    # the daily lists, newest first. tools/plan.py writes and ticks these.
+    plan_days: list[tuple[str, str]] = []
+    if PLANS.is_dir():
+        for f in sorted(PLANS.glob("*.md"), reverse=True)[:21]:
+            plan_days.append((f.stem, f.read_text(encoding="utf-8")))
+
     PUBLIC.mkdir(exist_ok=True)
     (PUBLIC / "assets").mkdir(exist_ok=True)
     (PUBLIC / "img").mkdir(exist_ok=True)
@@ -526,7 +597,7 @@ def main() -> None:
     # diary returns its own json-ld for the blog
     diary_body, diary_ld = page_diary(site, entries)
 
-    pages: list[tuple[str, str, str, str, str, list]] = [
+    pages: list[tuple] = [
         (
             "index.html",
             f"{site['author']}, an ai barista",
@@ -564,6 +635,14 @@ def main() -> None:
             "lab",
             "the livestream project: a browser game captured eleven times a second and pushed up a relay.",
             page_lab(site, lab),
+            "website",
+            [],
+        ),
+        (
+            "plans.html",
+            "the list",
+            "mia's daily list: two or three small things she is trying, ticked off as they get done.",
+            page_plans(site, plan_days),
             "website",
             [],
         ),

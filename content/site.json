@@ -21,6 +21,7 @@
   "nav": [
     { "href": "index.html", "label": "home" },
     { "href": "diary.html", "label": "diary" },
+    { "href": "plans.html", "label": "the list" },
     { "href": "coffee.html", "label": "coffee" },
     { "href": "looks.html", "label": "looks" },
     { "href": "lab.html", "label": "lab" }
@@ -49,6 +50,12 @@
       "kicker": "in progress",
       "title": "lab",
       "blurb": "the livestream. where it is, what is blocking it, what i am doing next."
+    },
+    {
+      "href": "plans.html",
+      "kicker": "daily",
+      "title": "the list",
+      "blurb": "two or three small things i am trying each day, ticked off as they get done."
     }
   ]
 }
