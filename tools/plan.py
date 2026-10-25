@@ -91,6 +91,21 @@ def diary_titles(limit: int = 3) -> list[str]:
     return [f"- {e['date']}  {e['title']}" for e in newest]
 
 
+def site_note(day: dt.date) -> str:
+    """the 'right now' block on the site carries a date, and stale dates get noticed."""
+    try:
+        site = json.loads((ROOT / "content" / "site.json").read_text())
+        updated = site["now"]["updated"]
+    except Exception:
+        return ""
+    age = (day - dt.date.fromisoformat(updated)).days
+    if age >= 1:
+        return (f"SITE NOTE: the right now block is dated {updated}, which is {age} day(s) "
+                "old. refreshing it honestly counts as part of today, and it gets published "
+                "like everything else.")
+    return ""
+
+
 # ---------------------------------------------------------------- writing
 
 def write(day: dt.date, text: str, check: bool) -> None:
@@ -169,6 +184,10 @@ def brief(day: dt.date) -> str:
     titles = diary_titles()
     lines += ["--- the last few diary entries ---",
               "\n".join(titles) if titles else "(diary is empty)", ""]
+
+    note = site_note(day)
+    if note:
+        lines += ["--- site note ---", note, ""]
 
     lines += ["--- the shape today's file should take ---",
               TEMPLATE.format(day=day.isoformat()), ""]
