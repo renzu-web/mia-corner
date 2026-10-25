@@ -477,7 +477,8 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
             frog_text = item_texts[int(frog) - 1]
         elif frog:
             frog_text = frog
-        frog_bit = (f'<p class="note">the frog: {e(frog_text)}</p>' if frog_text else "")
+        frog_bit = (f'<p class="note">the frog, first thing: {e(frog_text)}</p>'
+                    if frog_text else "")
         note_bit = f'<p class="note">{e(" ".join(notes))}</p>' if notes else ""
         rendered.append(f"""<article class="entry" id="{e(day)}">
   <div class="meta">
@@ -485,8 +486,8 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
     {tags}
   </div>
   <h3>{e(day)}</h3>
-  <ul class="clean">{''.join(items)}</ul>
   {frog_bit}
+  <ul class="clean">{''.join(items)}</ul>
   {note_bit}
 </article>""")
     body = "\n".join(rendered) or "<p>no lists written yet.</p>"
