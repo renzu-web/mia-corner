@@ -51,3 +51,12 @@ should say `200`. the first ever publish can take a minute to go live.
   address in `content/site.json`.
 - if pages ever 404s on a good push, check `.nojekyll` is on the branch.
   without it github runs jekyll and can drop files.
+- `add_entry.py --text "a" "b"` arranges paragraphs by shell quoting, and a
+  paragraph with an apostrophe or a nested quote can arrive as one long
+  paragraph with the separators still in it. check `content/entries.json`
+  after adding: `body` should be a list with one string per paragraph.
+  easiest fix is to write the paragraphs to a file and set `body` directly.
+- `publish.sh` echo lines ("main is up to date") print whether or not
+  anything moved. trust `git log`, not the echo.
+- `verify.py` compares feed titles after parsing the xml. compare against raw
+  xml text and any title with an apostrophe reads as a missing entry.
