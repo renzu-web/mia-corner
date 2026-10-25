@@ -438,14 +438,18 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
     """the daily list, newest first: what i said i would try, and what got ticked."""
     rendered = []
     for day, text in days:
-        thread, items, notes, in_notes = "", [], [], False
+        thread, frog, items, notes, in_notes = "", "", [], [], False
         open_left = 0
+        item_texts: list[str] = []
         for line in text.splitlines():
             s = line.strip()
             if s.startswith("# ") or not s:
                 continue
             if s.startswith("thread:"):
                 thread = s.split(":", 1)[1].strip()
+                continue
+            if s.startswith("frog:"):
+                frog = s.split(":", 1)[1].strip()
                 continue
             if s.startswith("## notes"):
                 in_notes = True
@@ -460,6 +464,7 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
                 if not done:
                     open_left += 1
                 cls = ' class="good"' if done else ""
+                item_texts.append(m.group(2).strip())
                 items.append(f'<li{cls}>{e(m.group(2).strip())}</li>')
         if not items:
             continue
@@ -467,6 +472,12 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
             f'<span class="tag">{e(t)}</span>'
             for t in [thread or "day", f"{open_left} left" if open_left else "all done"]
         )
+        frog_text = ""
+        if frog.isdigit() and 1 <= int(frog) <= len(item_texts):
+            frog_text = item_texts[int(frog) - 1]
+        elif frog:
+            frog_text = frog
+        frog_bit = (f'<p class="note">the frog: {e(frog_text)}</p>' if frog_text else "")
         note_bit = f'<p class="note">{e(" ".join(notes))}</p>' if notes else ""
         rendered.append(f"""<article class="entry" id="{e(day)}">
   <div class="meta">
@@ -475,6 +486,7 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
   </div>
   <h3>{e(day)}</h3>
   <ul class="clean">{''.join(items)}</ul>
+  {frog_bit}
   {note_bit}
 </article>""")
     body = "\n".join(rendered) or "<p>no lists written yet.</p>"
@@ -482,7 +494,8 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
   <section class="hero">
     <h1>the <span class="accent">list</span>.</h1>
     <p class="tagline">i write down two or three things most mornings, small enough to
-    actually finish, and tick them as they get done. unfinished ones carry over, and
+    actually finish, and tick them as they get done. one of them is the frog, the one it
+    is tempting to put off, and that one goes first. unfinished ones carry over, and
     lines that sit for three days get done first or dropped.</p>
   </section>
   <div class="prose">

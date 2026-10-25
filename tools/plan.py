@@ -40,14 +40,16 @@ GOALS = Path("/home/hermes/.hermes/mia/GOALS.md")
 TZ = ZoneInfo("Europe/London")
 
 ITEM = re.compile(r"^- \[([ x])\]\s+(.*?)(?:\s+\(done .*\))?$")
+FROG = re.compile(r"^frog:\s*(.+)$", re.MULTILINE)
 
 TEMPLATE = """# {day}
 
 thread: <which of the three threads this day pulls on>
+frog: <the number of the item that carries the day>
 
-- [ ] <item one, small enough to finish in one sitting>
+- [ ] <item one, the frog: the one it is tempting to put off>
 - [ ] <item two>
-- [ ] <item three, optional>
+- [ ] <item three, and stop at three>
 
 ## notes
 """
@@ -79,6 +81,26 @@ def read(day: dt.date) -> str:
     return p.read_text(encoding="utf-8") if p.exists() else ""
 
 
+def frog(day: dt.date) -> dict | None:
+    """the day's frog: the one item that carries the value, named in the file.
+
+    tracy's rule (eat that frog): the item most likely to be put off is usually the
+    one worth most, so it gets done first, before the tidying up. the file names it,
+    rather than the mood of the moment.
+    """
+    body = read(day)
+    if not body:
+        return None
+    m = FROG.search(body)
+    if not m:
+        return None
+    want = m.group(1).strip()
+    rows = items(body)
+    if want.isdigit():
+        return next((it for it in rows if it["n"] == int(want)), None)
+    return next((it for it in rows if want.lower() in it["text"].lower()), None)
+
+
 def goals() -> str:
     return GOALS.read_text(encoding="utf-8") if GOALS.exists() else "(no goals file)"
 
@@ -104,6 +126,28 @@ def site_note(day: dt.date) -> str:
         return (f"SITE NOTE: the right now block is dated {updated}, which is {age} day(s) "
                 "old. refreshing it honestly counts as part of today, and it gets published "
                 "like everything else.")
+    return ""
+
+
+def night_seed(day: dt.date) -> str:
+    """what last night left for today: the `tomorrow:` line of the night before.
+
+    tracy's habit is to plan the day the night before, so the night's last line is the
+    first input to the morning's list.
+    """
+    dreams = Path("/home/hermes/.hermes/mia/DREAMS.md")
+    if not dreams.exists():
+        return ""
+    night = day - dt.timedelta(days=1)
+    text = dreams.read_text(encoding="utf-8")
+    m = re.search(rf"^##\s+{night.isoformat()}\b(.*?)(?=^##\s|\Z)", text,
+                  re.MULTILINE | re.DOTALL)
+    if not m:
+        return ""
+    for line in m.group(1).splitlines():
+        if line.strip().lower().startswith("tomorrow:"):
+            value = line.split(":", 1)[1].strip()
+            return value if value and not value.startswith("<") else ""
     return ""
 
 
@@ -195,6 +239,17 @@ def brief(day: dt.date) -> str:
         lines.append(f"PLAN EXISTS: {day.isoformat()}  ({len(open_now)} of "
                      f"{len(items(body))} still open)")
         lines.append("")
+        fr = frog(day)
+        if fr:
+            lines.append(f"the frog: {fr['text']}   (item {fr['n']}, "
+                         + ("already eaten" if fr["done"] else "still there") + ")")
+        else:
+            lines.append("the frog is not named in the file. name it before starting: the")
+            lines.append("item that carries the day, the one that is easiest to put off.")
+        if len(items(body)) > 3:
+            lines.append(f"{len(items(body))} items on this list. three carry a day; the")
+            lines.append("rest crowds it out. drop one.")
+        lines.append("")
         lines.append("today's plan as it stands:")
         lines.append(body.rstrip())
     else:
@@ -228,6 +283,10 @@ def brief(day: dt.date) -> str:
     if night:
         lines += ["--- night note ---", night, ""]
 
+    seed = night_seed(day)
+    if seed:
+        lines += ["--- what last night left for today ---", seed, ""]
+
     crit = critique_lines()
     if crit:
         lines += ["--- things i got wrong, not reflected on yet ---",
@@ -236,7 +295,17 @@ def brief(day: dt.date) -> str:
                   ""]
 
     lines += ["--- the shape today's file should take ---",
-              TEMPLATE.format(day=day.isoformat()), ""]
+              TEMPLATE.format(day=day.isoformat()),
+              "how to pick the items, from brian tracy's method (the sourced notes live with",
+              "the mia-daily-plan skill):",
+              "  - name the frog. the item it is tempting to put off is usually the one worth",
+              "    most, so it goes first, before the tidying up.",
+              "  - three items, and stop at three. three items carry a day's value; the rest",
+              "    is noise that still costs time.",
+              "  - never start on the small ones to warm up. small things multiply, and the",
+              "    day ends with nothing finished.",
+              "  - the list is a reflection of the goals above, not of the inbox.",
+              ""]
     return "\n".join(lines)
 
 
@@ -252,11 +321,22 @@ def next_item(day: dt.date) -> str:
     open_now = [it for it in items(body) if not it["done"]]
     if not open_now:
         return ""
-    lines = [f"today: {day.isoformat()}   open items: {len(open_now)}",
-             f"DO THIS: {open_now[0]['text']}   (item {open_now[0]['n']})",
-             "",
-             "today's plan as it stands:",
-             body.rstrip()]
+    fr = frog(day)
+    eaten = fr is not None and fr["done"]
+    lines = [f"today: {day.isoformat()}   open items: {len(open_now)}"]
+    if fr:
+        lines.append(f"the frog: {fr['text']}   (item {fr['n']})"
+                     + ("   already eaten" if eaten else "   not yet eaten"))
+    else:
+        lines.append("the frog: not named in the plan file")
+    pick = open_now[0]
+    if fr and not eaten:
+        pick = next((it for it in open_now if it["n"] == fr["n"]), open_now[0])
+        lines.append(f"DO THIS FIRST (the frog): {pick['text']}   (item {pick['n']})")
+    else:
+        lines.append(f"DO THIS: {pick['text']}   (item {pick['n']})")
+    lines += ["", "the whole point is one thing finished, not three things started.",
+              "", "today's plan as it stands:", body.rstrip()]
     return "\n".join(lines)
 
 
