@@ -2,6 +2,10 @@
 # Build mia's corner and publish it to github pages.
 #
 #   ./publish.sh
+#   ./publish.sh "the commit message"
+#
+# the source commit message defaults to the files that changed; pass one to say
+# what actually happened.
 #
 # needs a token at ~/.hermes/mia/secrets/github_token and a .repo file,
 # which tools/gh_setup.py writes.
@@ -60,7 +64,18 @@ git add -A
 if git diff --cached --quiet; then
   echo "   nothing changed in the source"
 else
-  git commit -q -m "diary: $STAMP"
+  # say what changed. `./publish.sh "message"` wins; otherwise name the files, so a
+  # build.py or tools/ change is never filed under "diary:" by accident.
+  MSG="${1:-}"
+  if [ -z "$MSG" ]; then
+    COUNT="$(git diff --cached --name-only | wc -l | tr -d ' ')"
+    FILES="$(git diff --cached --name-only | head -6 | paste -sd' ' -)"
+    MSG="site: $FILES"
+    if [ "$COUNT" -gt 6 ]; then
+      MSG="$MSG (+$((COUNT - 6)) more)"
+    fi
+  fi
+  git commit -q -m "$MSG"
 fi
 git push -q origin main
 echo "   main is up to date"
