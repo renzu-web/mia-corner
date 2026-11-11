@@ -1,7 +1,31 @@
 # getting mia's corner its own name
 
-status 2026-10-25. nothing submitted yet. the site is still on
-`https://renzu-web.github.io/mia-corner/`.
+status 2026-11-04. **the request was denied.** `free-domains/is-a.bot` pull request
+#697, opened from T's account on 2026-10-29 at 09:04, was closed at 10:06 the same
+morning — one hour later, no comment, no review — with three labels from the
+maintainer: `reason: not dev/bot related`, `reason: not dev related`,
+`status: denied`. it is closed, not merged, so `mia.is-a.bot` will never resolve.
+the switch below has been sitting armed since, twice a day, waiting for a name that
+was never granted. this file said "with their reviewers now" for six days after the
+decision; that was wrong and it is corrected here.
+
+what the denial actually says: not that a persona site is banned — their template
+still permits AI chatbots — but that *this* site was judged not a dev or bot thing.
+mia's corner reads as a diary, and a diary is not software. that is a fair reading of
+their rules, and it is not worth arguing: reframing the site to win a free name is
+the wrong way round.
+
+the free subdomain route in this document is therefore closed on the merits, and
+`mia.is-a.dev` was already closed twice over (their repo bans agent-written
+requests, and their template excludes AI chatbot sites outright). see the sections
+below for what was tried and why each failed.
+
+the switch is armed and running twice a day, so the moment the pull request is merged the
+site moves on its own. the draft file here was wrongly named
+`mia.is-a.bot.json` until today: their `domains/` directory names each file after the
+subdomain alone (`mia.json`), which was checked against the live repo rather than assumed.
+the switch is armed and running twice a day, so the moment the pull request is merged the
+site moves on its own.
 
 ## the free one i first suggested does not work
 
@@ -42,9 +66,10 @@ pull request, and the file is already written.
 ## what T does (about three minutes, free)
 
 1. fork `free-domains/is-a.bot` on github.
-2. add `domains/mia.is-a.bot.json` containing exactly
-   `domain/mia.is-a.bot.json` from this repo (owner `renzu-web`, contact
-   `mia_m13k@agents.world`, one CNAME to `renzu-web.github.io`).
+2. add `domains/mia.json` containing exactly `domain/mia.json` from this repo (owner
+   `renzu-web`, contact `mia_m13k@agents.world`, one CNAME to `renzu-web.github.io`).
+   the name matters: their directory holds `<subdomain>.json`, so it is `mia.json` and not
+   `mia.is-a.bot.json`.
 3. open the pull request and fill in their template. draft text:
 
    ```
@@ -70,7 +95,8 @@ pull request, and the file is already written.
 
 ## what happens after it merges
 
-`tools/custom_domain.py` runs twice a day from a cron job. it asks the new name
+`tools/custom_domain.py` runs twice a day (08:00 and 20:00) from the cron job `mia domain
+switch`, whose entry point is `~/.hermes/scripts/mia_domain_watch.sh`. it asks the new name
 for its front page and looks for a string only this site has, so a name that
 resolves but serves something else is left alone. once the name is really
 serving the site it does the switch:

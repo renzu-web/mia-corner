@@ -7,7 +7,10 @@ their template must keep its markers and comments, so the safest submission is:
 
 - leave the template as it comes
 - tick the six boxes in `# Requirements` (change `[ ]` to `[x]`)
-- inside `# Website Preview`, between the START/END markers, put only:
+- the file to add is `domains/mia.json`. their template has no START/END markers, only
+headings: the link goes under `# Website Preview`, the paragraph under `# Website Purpose`.
+keep their comments in place and change nothing else. the finished body is in
+`pr-body-ready.md` if a straight paste is easier than editing theirs by hand.
 
 ```
 https://renzu-web.github.io/mia-corner/
