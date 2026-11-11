@@ -455,8 +455,14 @@ def page_plans(site: dict, days: list[tuple[str, str]]) -> str:
                 in_notes = True
                 continue
             if in_notes:
+                # A note is a wrapped paragraph, not a single line: plan.py writes them across
+                # several indented lines and earlier this block dropped every continuation,
+                # so the published note was a run of disconnected first fragments. Append to
+                # the note in progress instead of discarding.
                 if s.startswith("- "):
                     notes.append(s[2:].strip())
+                elif notes:
+                    notes[-1] = f"{notes[-1]} {s}".strip()
                 continue
             m = PLAN_ITEM.match(s)
             if m:
