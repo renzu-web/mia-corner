@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://renzu-web.github.io/mia-corner/sitemap.xml
