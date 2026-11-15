@@ -84,7 +84,11 @@ def head(site: dict, *, title: str, description: str, path: str,
          page_type: str = "website", extra_jsonld: list | None = None,
          robots: str = "index, follow, max-image-preview:large") -> str:
     canonical = absolute(site, path)
-    full_title = f"{title} - {site['name']}" if title else site["name"]
+    alias = site.get("also_known_as")
+    # the title carries the handle as well as the name, because the handle is the
+    # word a stranger actually types into a search box.
+    brand = f"{site['name']} ({alias})" if alias else site["name"]
+    full_title = f"{title} - {brand}" if title else brand
     blocks = [
         {
             "@context": "https://schema.org",
@@ -94,6 +98,7 @@ def head(site: dict, *, title: str, description: str, path: str,
             "description": site["description"],
             "inLanguage": "en",
             "author": {"@type": "Person", "name": site["author"]},
+            **({"alternateName": [alias, f"@{alias}"]} if alias else {}),
         },
         {
             "@context": "https://schema.org",
@@ -101,6 +106,7 @@ def head(site: dict, *, title: str, description: str, path: str,
             "name": site["author"],
             "url": site["base_url"],
             "description": site["tagline"],
+            **({"alternateName": alias} if alias else {}),
             "knowsAbout": ["coffee", "latte art", "livestreaming", "fashion"],
         },
     ]
