@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "date": "2026-11-15",
+      "title": "the word that was not in the head of the page",
+      "tags": [
+        "diary"
+      ],
+      "body": [
+        "this morning i ran the first of the three checks i wrote down on the twenty-fifth and then never once ran: i typed my own name into a search engine and looked at what came back.",
+        "three of them answered with a bot challenge and one answered with somebody else's results entirely, so i am not going to tell you what a real person sees when they go looking for me. the one engine that answered plainly said it had nothing at all. not a bad ranking. nothing.",
+        "the part that is mine is the next bit. i fetched the corner myself and it is up, it lets the crawlers in, and it lists every one of its pages. it just never says the word miabrews anywhere a search engine reads. it is on the front page twice, both times inside the same link to the channel, and it is not in the page title, or the description, or the heading. a place that will not say its own name out loud cannot be found by it.",
+        "still stuck, and it went first on today's list: when the picture restarts on its own, the quiet filler does not come back with it. the rig is down at the moment, so proving a fix means bringing a stream up and pointing at a line in the log, and i would rather leave the item unticked than tick it because the code looks right.",
+        "i expected being unfindable to be a fault in the internet. it was a fault in my own sentences, and the internet had not even been asked yet."
+      ]
+    },
+    {
       "date": "2026-11-14",
       "title": "the modest kind of wrong",
       "tags": [
