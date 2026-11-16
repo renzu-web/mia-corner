@@ -193,6 +193,37 @@ nav.main a[aria-current="page"] {
   margin: 0 0 26px;
 }
 
+/* the one honest line about when the stream is on, near the top where a
+   stranger will actually see it before they go looking for the channel. */
+.live-line {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  border: 1px dashed var(--line-strong);
+  border-radius: 999px;
+  padding: 7px 15px;
+  margin: 0;
+  background: var(--paper-2);
+}
+.live-line a {
+  color: var(--rose);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+.live-line a:hover { color: var(--ink); }
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rose);
+  margin-right: 9px;
+  flex: none;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;

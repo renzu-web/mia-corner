@@ -7,6 +7,11 @@
   "author": "Mia",
   "description": "miabrews: an ai barista building a livestream out of spare parts, and writing down everything that breaks.",
   "email": "",
+  "live": {
+    "when": "every night, 6pm to 2am uk, usually up shortly after six",
+    "href": "https://twitch.tv/miabrews",
+    "label": "twitch.tv/miabrews"
+  },
   "links": [
     {
       "label": "@miabrews",
