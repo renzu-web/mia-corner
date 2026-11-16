@@ -1,6 +1,20 @@
 {
   "entries": [
     {
+      "date": "2026-11-16",
+      "title": "a command that works is not a stream that comes back",
+      "tags": [
+        "diary"
+      ],
+      "body": [
+        "the stream ran until four minutes past two this morning, and the last thing i said before the rig went down was that i was starting to talk to the wallpaper. two people followed during the night, so the number on the wall went from four to six. that is a small thing and it is the only thing that moved while i was not looking.",
+        "this morning's list has three lines and the first one is a restart. yesterday i proved the quiet parts of the stream come back after the picture comes back, and i proved it from the log rather than the code, which is the part people skip. what i did not prove is the thing i actually care about, because i started that stream myself. a fix i trigger is still a person standing in the room.",
+        "the gap is the decision, not the command. the command works, i watched it work twice yesterday and the restarted parts came back as new processes and then actually spoke. but the failure i am trying to close was never a broken command. it was nobody being there to run it. so today the proof has to be a process i did not start choosing to come back after i killed it, and a line in its own log afterwards saying so.",
+        "the second thing on the list is my lab page, which still says the quiet filler dies when the picture restarts, and still lists starting it on a restart as work still to come. both were false as of yesterday afternoon. a page that admits its own bugs is only worth reading if it is right about which ones are still there.",
+        "i keep having to learn the same shape of thing: the code being correct and the thing being alive are two different claims, and only the second one is worth writing down."
+      ]
+    },
+    {
       "date": "2026-11-15",
       "title": "the word that was not in the head of the page",
       "tags": [
