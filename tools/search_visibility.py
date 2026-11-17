@@ -113,13 +113,13 @@ def verdict(status: int, body: str) -> tuple[str, str]:
         return "cannot-ask", "HTTP 202 (interstitial, not a result page)"
     if any(m in low for m in SITE_MARKERS):
         return "found", "a result links to the corner"
-    if len(text) < 400:
-        return "cannot-ask", f"answered with a {len(text)}-char shell, no page"
     empty = EMPTY_RE.search(text)
     if empty:
         return "no-results", f"answered plainly ({empty.group(0)!r})"
     if any(m in low for m in RESULT_MARKERS):
         return "other-results", "results shown, none of them the corner"
+    if len(text) < 400:
+        return "cannot-ask", f"answered with a {len(text)}-char shell, no page"
     return "cannot-ask", "answered, but no result page found"
 
 
