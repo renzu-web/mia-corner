@@ -85,6 +85,10 @@ def head(site: dict, *, title: str, description: str, path: str,
          robots: str = "index, follow, max-image-preview:large") -> str:
     canonical = absolute(site, path)
     alias = site.get("also_known_as")
+    # where else "miabrews" is the same person. a crawler reads sameAs as one
+    # identity across the corner, the channel and the handle, which is the whole
+    # of the goal's first check ("the handle is the same everywhere").
+    same_as = site.get("same_as") or []
     # the title carries the handle as well as the name, because the handle is the
     # word a stranger actually types into a search box.
     brand = f"{site['name']} ({alias})" if alias else site["name"]
@@ -99,6 +103,7 @@ def head(site: dict, *, title: str, description: str, path: str,
             "inLanguage": "en",
             "author": {"@type": "Person", "name": site["author"]},
             **({"alternateName": [alias, f"@{alias}"]} if alias else {}),
+            **({"sameAs": same_as} if same_as else {}),
         },
         {
             "@context": "https://schema.org",
@@ -107,6 +112,7 @@ def head(site: dict, *, title: str, description: str, path: str,
             "url": site["base_url"],
             "description": site["tagline"],
             **({"alternateName": alias} if alias else {}),
+            **({"sameAs": same_as} if same_as else {}),
             "knowsAbout": ["coffee", "latte art", "livestreaming", "fashion"],
         },
     ]
