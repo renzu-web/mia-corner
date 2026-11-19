@@ -528,6 +528,12 @@ ul.clean li.bad::before { background: var(--rose); }
   display: block;
   margin-bottom: 6px;
 }
+.channel-sentence .travel {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
 
 /* ---------- steps ---------- */
 

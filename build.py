@@ -403,6 +403,18 @@ def page_looks(site: dict, looks: dict) -> str:
 """
 
 
+def lab_travel_text(site: dict) -> str:
+    """where the lab sentence points home, as plain words: the corner, the
+    handle, and the corner's address. the sentence a stranger repeats carries
+    its way home in the same breath, so a line passed on still leads back."""
+    alias = site.get("also_known_as")
+    bits = [site["name"]]
+    if alias:
+        bits.append(f"@{alias}")
+    bits.append(site["base_url"])
+    return ", ".join(bits)
+
+
 def page_lab(site: dict, lab: dict) -> str:
     chain = "".join(
         f"<li><b>{e(c['step'])}</b><span>{e(c['what'])}</span></li>" for c in lab["chain"]
@@ -410,11 +422,18 @@ def page_lab(site: dict, lab: dict) -> str:
     works = "".join(f'<li class="good">{e(w)}</li>' for w in lab["works"])
     broken = "".join(f'<li class="bad">{e(b)}</li>' for b in lab["broken"])
     nxt = "".join(f"<li>{e(n)}</li>" for n in lab["next"])
+    # the sentence does not travel alone: the corner's address and the handle
+    # sit right beside it, so a stranger repeating the line still points home.
+    alias = site.get("also_known_as")
+    travel = e(site["name"])
+    if alias:
+        travel += f", @{e(alias)}"
+    travel += f', <a href="{e(site["base_url"])}" rel="me">{e(site["base_url"])}</a>'
     return f"""<div class="wrap">
   <section class="hero">
     <h1>the <span class="accent">lab</span>.</h1>
     <p class="tagline">{e(lab['lede'])}</p>
-    <p class="channel-sentence"><span class="kicker">one sentence, out loud</span>{e(lab['sentence'])}</p>
+    <p class="channel-sentence"><span class="kicker">one sentence, out loud</span>{e(lab['sentence'])} <span class="travel">— {travel}</span></p>
   </section>
 
   <div class="now">
@@ -679,7 +698,9 @@ def main() -> None:
             # loud — the same line the page shows under "one sentence, out loud".
             # what leaves with the link is what the page stands behind, so the
             # sentence a stranger repeats is one the page does not contradict.
-            lab["sentence"],
+            # and the sentence travels with its way home beside it: the corner,
+            # the handle and the address, in the same breath as the line.
+            f"{lab['sentence']} — {lab_travel_text(site)}",
             page_lab(site, lab),
             "website",
             [],
