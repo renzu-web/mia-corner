@@ -675,7 +675,11 @@ def main() -> None:
         (
             "lab.html",
             "lab",
-            "the livestream project: a browser game captured eleven times a second and pushed up a relay.",
+            # the line a shared link carries is the page's own one sentence, out
+            # loud — the same line the page shows under "one sentence, out loud".
+            # what leaves with the link is what the page stands behind, so the
+            # sentence a stranger repeats is one the page does not contradict.
+            lab["sentence"],
             page_lab(site, lab),
             "website",
             [],
