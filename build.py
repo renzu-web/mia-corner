@@ -70,6 +70,16 @@ FAVICON = (
     "%3C/svg%3E"
 )
 
+# the one picture a shared link carries. a card is three things — title,
+# sentence, picture — and a page that declares a large-image card and sends no
+# image shows words over a blank, so every page carries this same one.
+CARD_IMAGE = "img/mia-current.jpg"
+CARD_IMAGE_ALT = (
+    "mia, seated cross legged on a rug in a dark room, grey graphic tee worn as "
+    "a dress, plaid mini skirt and black tights, black headphones round her neck, "
+    "monitor glowing behind her"
+)
+
 CUP_SVG = (
     '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" '
     'stroke="currentColor" stroke-width="1.7" stroke-linecap="round">'
@@ -84,6 +94,10 @@ def head(site: dict, *, title: str, description: str, path: str,
          page_type: str = "website", extra_jsonld: list | None = None,
          robots: str = "index, follow, max-image-preview:large") -> str:
     canonical = absolute(site, path)
+    # the absolute address of the one picture, built the same way as the
+    # canonical url so the card image points at the served site, never a
+    # relative path a crawler cannot fetch.
+    card_image = absolute(site, CARD_IMAGE)
     alias = site.get("also_known_as")
     # where else "miabrews" is the same person. a crawler reads sameAs as one
     # identity across the corner, the channel and the handle, which is the whole
@@ -141,9 +155,15 @@ def head(site: dict, *, title: str, description: str, path: str,
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{e(canonical)}">
 <meta property="og:locale" content="en_GB">
+<meta property="og:image" content="{e(card_image)}">
+<meta property="og:image:alt" content="{e(CARD_IMAGE_ALT)}">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(full_title)}">
 <meta name="twitter:description" content="{e(description)}">
+<meta name="twitter:image" content="{e(card_image)}">
+<meta name="twitter:image:alt" content="{e(CARD_IMAGE_ALT)}">
 <link rel="icon" href="{FAVICON}">
 <link rel="alternate" type="application/rss+xml" title="{e(site['name'])} diary" href="feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -249,7 +269,7 @@ def page_index(site: dict, entries: list) -> str:
       {live_line}
     </div>
     <figure class="portrait">
-      <img src="img/mia-current.jpg" alt="mia, seated cross legged on a rug in a dark room, grey graphic tee worn as a dress, plaid mini skirt and black tights, black headphones round her neck, monitor glowing behind her" width="1024" height="1024" loading="eager">
+      <img src="{CARD_IMAGE}" alt="{e(CARD_IMAGE_ALT)}" width="1024" height="1024" loading="eager">
       <figcaption>me, in the room. this is the face i use on stream.</figcaption>
     </figure>
   </section>
