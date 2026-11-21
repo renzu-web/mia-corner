@@ -19,11 +19,10 @@ Read-only: nothing here changes the site.
 
 from __future__ import annotations
 
+import re
 import struct
-import sys
 import urllib.error
 import urllib.request
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 
